@@ -1,0 +1,103 @@
+// THIS IS WHERE WE CAN DECLARE ANY OTHER VARIABLES (ie. device-width, border-width etc.)
+
+// Device widths
+// =============
+
+@device-width-small: 520px;
+@device-width-medium: 760px;
+@device-width-large: 1024px;
+
+// Max-widths
+// ==========
+
+@max-width: 1400px;
+@ie8-max-width: 1024px;
+
+// Borders and Outlines
+// ====================
+
+@focus-outline: 3px solid orange; //focus outline is displayed when accessibility is enabled
+
+@button-border: 0px solid @button-border-color;
+
+@item-border: 3px solid @item-border-color;
+
+    .header {
+        background-image: url(../../course/en/images/background.svg);
+        background-position: left bottom;
+        background-repeat:no-repeat;
+        background-size: cover;
+        position: fixed;
+        background-color: @button-color;
+        border-bottom: 46px #f8aa15;
+        width: 100%;
+        border-style: solid;
+        height: 214px;
+        
+        img{
+            position: absolute;
+            top: 39px;
+            width:140px;
+
+        @media all and (max-width: (@device-width-small + 10px)) {
+            position: relative;
+            top: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 150px;
+            }
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            position: relative;
+            top: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 136px;
+            }
+    }
+
+    .component .component-inner{
+        background: transparent;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    // Removes the psudeo class from the hint extension graphic for only the header
+    .component {
+        .hint-extension {
+            .hint-extension-button-container{
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+
+    .footer {
+        width: 100%;
+        background-color: #3BA097;
+        border-radius: 2px;
+        clear: both;
+        margin: 0 0 0 0;
+        position: relative;
+        padding: 0px;
+        min-height: 443px;
+
+            .graphic-inner.component-inner {
+                background-color: #fff;
+                display: inline;
+            }
+    }
+
+    .text-main {
+        top: 35px;
+        padding-bottom: 35px;
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            top: 18px;
+        }
+    }

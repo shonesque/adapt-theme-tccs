@@ -1,0 +1,251 @@
+// Component styling
+// =================
+
+.component {
+
+    .component-inner {
+        .component-background;
+        &.blank-inner { // don't apply styling to blank component
+            background-color:transparent;
+            padding: 0;
+        }
+    }
+
+
+    .component-title{
+        color: @button-color;
+        margin-bottom: 0px;
+        background-color: @background-color;
+        padding: 18px 22px 10px 22px;
+        font-weight: @font-weight-regular;
+        font-family: @font-family-title;
+        font-size: @component-title-font-size;
+        text-align: left;
+
+        .dir-rtl & {
+            text-align: right;
+        }
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            font-size: 24px;
+        }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+            font-size: 18px;
+        }
+    }
+
+    .component-title-inner {
+        background-color: transparent;
+        padding: 0px;
+        letter-spacing: -0.2px;
+
+        &:before {
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 23px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .component-body{
+        background-color: @background-color;
+        margin: 0px 0px 4px;
+        padding-top: @body-text-margin * 5;
+        padding-bottom: 8px;
+
+        a {
+          text-decoration: underline;
+          color: @font-color;
+        }
+    }
+
+    .component-body-inner{
+            padding: 2px 22px 10px 22px; 
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+            font-size: 12px;
+            margin-top: 2px;
+        }
+           
+    }
+
+    .component-instruction {
+        margin-bottom: 3px;
+        .instruction-text;
+    }
+
+
+        .component-course-title-inner{
+            position: absolute;
+            top: 80px;
+            left: 153px;
+            z-index: 10;
+            color: #fff;
+            margin-bottom: 0px;
+            padding: 10px 1px 12px 1px;
+            font-weight: @font-weight-regular;
+            font-size: 35px;
+            font-family: @font-family-title;
+            text-align: left;
+            line-height: normal;
+            letter-spacing: -0.2px;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                position: relative;
+                text-align: center;
+                left: 0;
+                font-size: 16px;
+                top: 2px;
+                }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                position: relative;
+                text-align: center;
+                left: 0;
+                font-size: 16px;
+                top: 2px;
+                }
+            }
+
+            .component-module-title-inner{
+                position: absolute;
+                top: 209px;
+                right: 10px;
+                z-index: 10;
+                color: @white;
+                margin-bottom: 0px;
+                padding: 10px 0px 10px 0px;
+                font-size: @sub-title-font-size;
+                font-family: @font-family-title;
+                font-weight: @font-weight-regular;
+                text-align: right;
+                letter-spacing: -0.2px;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                text-align: center;
+                left: 0;
+                font-size: 2.8vw;
+                top: 210px;
+        }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                text-align: center;
+                left: 0;
+                font-size: 3.5vw;
+                top: 213px;
+        }
+    }
+
+    .component-instruction-inner {
+        margin-left: 0px;
+        padding-left: 22px;
+        font-weight: @font-weight-bold;
+        &.validation-error {
+            color: @validation-error;
+        }
+    }
+
+    // to replicate padding between blocks when components drop into a single column
+    @media all and (max-width: (@device-width-small)) {
+    
+        &.component-left {
+            padding: 0 0 (@block-padding / 3);
+        }
+    
+        &.component-right {
+            padding: (@block-padding / 3) 0 0;
+        }   
+    }
+}
+
+    .component-background-color {
+        background-color: transparent;
+    }
+
+    .module-molder {
+        background: @background-color;
+        border-radius: 4px;
+        clear: both;
+        position: relative;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 55px;
+
+            &:after {
+                content: "";
+                height: 82px;
+                margin: 0 auto;
+                width: 82px;
+                display: block;
+                background: @white;
+                //border-top: 2px solid #ddd;
+                position: absolute;
+                left: -18px;
+                bottom: -46px;
+                right: -18px;
+                z-index: 0;
+                border-radius: 50%;
+                //box-shadow: inset 0px 8px 48px #ddd;
+            }
+
+            &.end{
+                 border-radius: 0 0 25px 25px;
+
+                &.module-molder {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+    }
+
+    .non-trickle-spacer {
+        background: @background-color;
+        border-radius: 4px;
+        clear: both;
+        position: relative;
+        margin-bottom: 10px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+            &:after {
+                display: none;
+            }
+
+            &.end{
+                 border-radius: 0 0 25px 25px;
+
+                &.module-molder {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+    }
+
+hr.component {
+    width: 100%;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #eaeaea;
+    margin: 48px 0;
+    padding: 0;
+
+            @media all and (max-width: @device-width-medium) {
+                border: 0;
+            }
+
+            @media all and (max-width: @device-width-small) {
+                border: 0;
+            }
+    }

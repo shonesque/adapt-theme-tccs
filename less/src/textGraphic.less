@@ -1,0 +1,151 @@
+.textGraphic-component {
+	position: relative;
+	//width: 1024px;
+
+	  .textGraphic-inner {
+	  	padding: 0;
+            .textGraphic-title-container {
+                margin-top: 0;
+                @media all and (max-width: (@device-width-medium + 20px)) {
+                    margin-top: 18px;
+                    padding-left: 15px;
+                }
+                  .textGraphic-title {
+                    padding: 6px 22px 10px 37px;
+
+                    @media all and (max-width: (@device-width-medium + 20px)) {
+                        padding: 10px 22px 10px 22px;
+                    }
+                  }
+            }
+	  }
+
+	 .graphic-widget{
+        padding: 0px 37px;
+        margin-top: 8px;
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            padding: 0;
+        } 
+		img {
+			background-size: contain;
+		    vertical-align: top;
+		    margin: auto;
+		    width: 100%;
+		    padding: 0;
+		}
+	}
+}
+
+
+.graphic-left {
+	//max-height: 339px;
+	display: inline-flex;
+	//padding: 0;
+
+		.graphic-widget{
+			min-height: none;
+			padding: 0;
+			width: 50%;
+			float: left;
+	    	margin-top: 0;
+
+	    	@media all and (max-width: (@device-width-medium + 20px)) {
+	    		min-height: none;
+		    	padding: 0;
+		    	margin-top: 8px;
+		    	float: none;
+		    	width: 100%;
+	    	}
+		}
+    .textGraphic-title{
+        .component-title {
+            padding: 18px 22px 10px 37px;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                padding: 18px 22px 10px 15px;
+            }
+          }
+    }
+		
+		 .textGraphic-body-text-inner {
+		 	display: table-cell;
+		    padding: 16px 15px 2px 37px;
+
+		    @media all and (max-width: (@device-width-medium + 20px)) {
+		    	padding: 5px 16px 30px 16px;
+			}
+		}
+
+		.textGraphic-body-inner{
+			min-height: 260px;
+			padding: 0;
+			width: 50%;
+			float: right;
+			background-color: inherit;
+
+			@media all and (max-width: (@device-width-medium + 20px)) {
+				min-height: 60px;
+				padding-left: 21px;
+		    	margin-top: 8px;
+		    	float: none;
+		    	width: 100%;
+			}
+		}
+
+		&.module-molder {
+	    	padding-bottom: 0;
+		}
+}
+
+.graphic-right {
+	//max-height: 339px;
+	display: inline-flex;
+	//padding: 0;
+
+		.graphic-widget{
+			min-height: none;
+			padding: 0;
+			width: 50%;
+			float: right;
+	    	margin-top: 0;
+
+	    	@media all and (max-width: (@device-width-medium + 20px)) {
+	    		min-height: none;
+		    	padding: 0;
+		    	margin-top: 8px;
+		    	float: none;
+		    	width: 100%;
+	    	}
+		}
+
+		
+
+		 .textGraphic-body-text-inner {
+		 	display: table-cell;
+		    padding: 16px 15px 2px 22px;
+		    
+		    @media all and (max-width: (@device-width-medium + 20px)) {
+		    	padding: 5px 16px 30px 16px;
+			}
+		}
+
+		.textGraphic-body-inner{
+			min-height: 260px;
+			padding-left: 15px;
+			width: 45%;
+			float: left;
+			background-color: inherit;
+
+			@media all and (max-width: (@device-width-medium + 20px)) {
+				min-height: 60px;
+				padding-left: 21px;
+		    	margin-top: 8px;
+		    	float: none;
+		    	width: 100%;
+			}
+		}
+
+		&.module-molder {
+	    	padding-bottom: 0;
+		}
+}

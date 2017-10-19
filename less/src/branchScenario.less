@@ -1,0 +1,195 @@
+.branchScenario-component {
+    
+    .branchScenario-item {
+        padding-left: 25px;
+        padding-right: 25px;
+        background-color:@background-color;
+        position:relative;
+    }
+
+    .branchScenario-item label {
+        color:@item-text-color;
+        display:block;
+        margin-bottom:@item-margin-bottom;
+        position:relative;
+        border-radius: 0px;
+        z-index:1;
+        background-color:@white;
+        cursor:pointer;
+        border-left: 6px solid @tccs-module;
+
+        .no-touch &:hover {
+            background-color: @white;
+            border-left: 6px solid @tccs-blue;
+            color: @item-text-color;
+        }
+
+        .no-touch &:active {
+            border-left: 6px solid @tccs-orange;
+        }
+
+        &.selected {
+            color:@item-text-color-selected;
+            background-color:#74a49e;
+            border-color:@item-border-color-selected;
+            .branchScenario-answer-icon {
+                color:@item-text-color-selected;
+
+                 &.radio {
+                    &:before {
+                        content: "\e65d";
+                    }
+                }
+                &.checkbox {
+                    &:before {
+                        content: "\e633";
+                    }
+                    border: 3px solid @item-text-color-selected;
+                    width:18px;
+                    height:18px;
+                    font-size:18px;
+                    font-weight: bold;
+                    border-radius: 2px;
+                }
+            }
+            .branchScenario-item-icon {
+                color:@item-text-color-selected;
+
+                &.branchScenario-correct-icon {
+                    color:@validation-success;
+                }
+
+                &.branchScenario-incorrect-icon {
+                    color:@validation-error;
+                }
+            }
+        }
+    }
+
+        .feedback-controls {
+        //width: (@icon-size * 2.5);
+        //height: (@icon-size * 2.5);
+        margin-top: -(@icon-size * 2);
+        &:hover {
+            .icon {
+                //color:@orange;;
+            }
+        }
+
+        .icon {
+            font-size: (@icon-size * 1.25);
+            font-weight: bold;
+            //margin: (@icon-size / 1.6) (@icon-size / 1.5) (@icon-size / 1.5) ;
+            //color:@button-color;
+        }
+    }
+
+    .feedback-text-controls {
+        .feedback-controls {
+            width: auto;
+            height: auto;
+            .icon {
+                font-size: @icon-size;
+            }
+        }
+    }
+
+    .branchScenario-item-inner {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 15px;
+        padding-left: 18px;
+    }
+
+    .branchScenario-correct-icon {
+        display:none;
+    }
+
+    .branchScenario-incorrect-icon {
+        display:none;
+    }
+
+    .branchScenario-item-state {
+        background:none;
+        position:absolute;
+        left:@item-padding-left;
+        .dir-rtl & {
+            left:inherit;
+            right:@item-padding-left;
+        }
+        width:@icon-size;
+        height:@icon-size;
+        top:50%;
+        margin-top:-(@icon-size/2);
+        z-index:0;
+    }
+
+}
+
+.branchScenario-widget {
+
+    &.disabled {
+        .branchScenario-item label.selected.disabled {
+            color:@item-text-color-selected;
+            background-color:#949494;
+            border-color:@item-border-color-selected;
+            cursor:default;
+        }
+        .branchScenario-item label.disabled {
+            color:@item-text-color-disabled;
+            background-color:#BBB;
+            border-color:@item-border-color-disabled;
+            cursor:default;
+
+            .branchScenario-item-icon {
+                    background-color: #fff;
+                    -moz-border-radius: 60px;
+                    -webkit-border-radius: 60px;
+                    border-radius: 60px;
+                    -moz-box-shadow: 0px 0px 0px #888;
+                    -webkit-box-shadow: 0px 0px 2px #888;
+                    box-shadow: 0px 0px 2px #888;
+                &.branchScenario-correct-icon {
+                    color:@validation-success;
+                }
+                &.branchScenario-incorrect-icon {
+                    color:@validation-error;
+                }
+            }
+        }
+    }
+}
+
+.no-touch {
+
+    .branchScenario-widget {
+        &:not(.disabled) {
+            .branchScenario-item label:hover {
+                color:@item-text-color-hover;
+                background-color:#74a49e;
+                border-color:@item-border-color-hover;
+                .branchScenario-item-icon {
+                    color: none;
+                }
+            }
+            .branchScenario-item label.disabled {
+                color:@item-text-color;
+                background-color:@white;
+                border-left: 6px solid @tccs-module;
+                &:hover {
+                    color:@item-text-color;
+                    background-color:@white;
+                    border-left: 6px solid @tccs-blue;
+                }
+                .branchScenario-item-icon {
+                    &.branchScenario-correct-icon {
+                        color:@validation-success;
+                    }
+                    &.branchScenario-incorrect-icon {
+                        color:@validation-error;
+                    }
+                }
+            }
+        }
+    }
+}

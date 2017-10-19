@@ -1,0 +1,35 @@
+.footer-component {
+    .footer-inner {
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            font-size: 14px;
+        }
+        @media all and (max-width: (@device-width-small + 20px)) {
+            font-size: 12px;
+        }
+    }
+    .footer-title {
+        position: relative;
+        display: inline-block;
+        color: #fff;
+        background-color: transparent;
+        text-align: center;
+        top: 0;
+        left: 10%;
+        letter-spacing: 0.1px;
+        z-index: 10;
+        width: 80%;
+        font-family: @font-family-title;
+        font-weight: @font-weight-regular;
+        font-size: 26px;
+        
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+    }
+}

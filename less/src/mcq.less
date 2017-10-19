@@ -1,0 +1,168 @@
+.mcq-component {
+    .mcq-item {
+        padding-left: 25px;
+        padding-right: 25px;
+        background-color: @background-color;
+        position:relative;
+    }
+
+    .mcq-item label {
+        color:@item-text-color;
+        display:block;
+        margin-bottom:@item-margin-bottom;
+        position:relative;
+        border-left: 6px solid @tccs-module;
+        border-radius: 0px;
+        z-index:1;
+        background-color:@item-color;
+        cursor:pointer;
+
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+
+        &.selected {
+            color:@item-text-color;
+            background-color:@white;
+            border-left: 6px solid @tccs-orange;
+            .mcq-answer-icon {
+                color:@item-text-color;
+
+                 &.radio {
+                    &:before {
+                        content: "\e65d";
+                    }
+                }
+                &.checkbox {
+                    &:before {
+                        content: "\e633";
+                    }
+                    border: 3px solid @item-text-color-selected;
+                    width:18px;
+                    height:18px;
+                    font-size:18px;
+                    font-weight: bold;
+                    border-radius: 2px;
+                }
+            }
+            .mcq-item-icon {
+                color:@item-text-color;
+
+                &.mcq-correct-icon {
+                    color:@validation-success;
+                }
+
+                &.mcq-incorrect-icon {
+                    color:@validation-error;
+                }
+            }
+        }
+
+    }
+
+    .mcq-item-inner {
+        padding-top: 11px;
+        padding-bottom: 11px;
+        padding-right: 35px;
+        padding-left: (@icon-size+(@item-padding-left*2));
+        display: inline-block;
+    }
+
+    .mcq-correct-icon {
+        display:none;
+    }
+
+    .mcq-incorrect-icon {
+        display:none;
+    }
+
+    .mcq-item-state {
+        background:none;
+        //position:absolute;
+        //left:@item-padding-left;
+        .dir-rtl & {
+            left:inherit;
+            right:@item-padding-left;
+        }
+        width:@icon-size;
+        height:@icon-size;
+        top:50%;
+        margin-top:-(@icon-size/2);
+        display: inline-block;
+        z-index:0;
+    }
+}
+
+.mcq-widget {
+    margin-top: 8px;
+
+    &.disabled {
+        .mcq-item label.selected.disabled {
+            color:@item-text-color;
+            background-color: @white;
+            border-left: 6px solid @correct-tccs-answer; 
+            cursor:default;
+        }
+        .mcq-item label.disabled {
+            color:@item-text-color;
+            border: none;
+            background-color:@white;
+            border-left: 6px solid transparent;
+            cursor:default;
+
+            .mcq-item-icon {
+                    //background-color: #fff;
+                    //-moz-border-radius: 60px;
+                    //-webkit-border-radius: 60px;
+                    //border-radius: 60px;
+                    //-moz-box-shadow: 0px 0px 0px #888;
+                    //-webkit-box-shadow: 0px 0px 2px #888;
+                    //box-shadow: 0px 0px 2px #888;
+                &.mcq-correct-icon {
+                    color: @correct-tccs-answer;
+                }
+                &.mcq-incorrect-icon {
+                    color: @incorrect-tccs-answer;
+                }
+            }
+        }
+    }
+}
+
+.no-touch {
+
+    .mcq-widget {
+        &:not(.disabled) {
+            .mcq-item label:hover {
+                color: @item-text-color;
+                background-color: @white;
+                border-left: 6px solid @tccs-blue;
+                .mcq-item-icon {
+                    color: @item-text-color;
+                }
+                &.selected {
+                    background-color: @white;
+                    border-left: 6px solid @tccs-orange;
+                }
+            }
+            .mcq-item label.disabled {
+                color:@item-text-color-disabled;
+                background-color:@item-color-disabled;
+                border-color:@item-border-color-disabled;
+                &:hover {
+                    color:@item-text-color-disabled;
+                    background-color:@item-color-disabled;
+                    border-color:transparent;
+                }
+                .mcq-item-icon {
+                    &.mcq-correct-icon {
+                        color:@validation-success;
+                    }
+                    &.mcq-incorrect-icon {
+                        color:@validation-error;
+                    }
+                }
+            }
+        }
+    }
+}

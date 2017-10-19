@@ -1,0 +1,23 @@
+{
+  "name": "adapt-theme-tccs",
+  "version": "1.0.0",
+  "framework": ">=2.1",
+  "homepage": "https://github.com/ivx/adapt-theme-tccs",
+  "issues": "https://github.com/ivx/adapt-theme-tccs.git",
+  "displayName": "TCCS Theme",
+  "theme": "theme-tccs",
+  "description": "Theme for TCCS e-learnings",
+  "main": "js/theme-tccs.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-theme"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

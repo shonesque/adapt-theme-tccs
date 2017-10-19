@@ -1,0 +1,41 @@
+<div>
+
+{{#if displayTitle}}
+	<div class="{{_component}}-title component-title">
+	    <div role="heading" class="{{_component}}-title-inner component-title-inner">
+	        {{{displayTitle}}}
+	    </div>
+	</div>
+{{/if}}
+
+{{#if body}}
+	<div class="{{_component}}-body component-body">
+	    <div class="{{_component}}-body-inner component-body-inner">
+	        {{{a11y_text body}}}
+	    </div>
+	</div>
+{{/if}}
+{{!-- 
+{{#if instruction}}
+	<div class="{{_component}}-instruction component-instruction">
+	    <div class="{{_component}}-instruction-inner component-instruction-inner">
+	        {{{a11y_text instruction}}}
+	    </div>
+	</div>
+{{/if}}
+--}}
+{{#if courseTitle}}
+	<div class="{{_component}}-title course-title">
+	    <div role="heading" class="{{_component}}-course-title-inner component-course-title-inner">
+	        {{{courseTitle}}}
+	    </div>
+	</div>
+{{/if}}
+{{#if moduleTitle}}
+	<div class="{{_component}}-title module-title">
+	    <div role="heading" class="{{_component}}-module-title-inner component-module-title-inner">
+	        {{{moduleTitle}}}
+	    </div>
+	</div>
+{{/if}}
+</div>

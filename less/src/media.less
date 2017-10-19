@@ -1,0 +1,94 @@
+.media-component {
+  .media-transcript {
+    &:hover {
+      color: @button-text-color-hover;
+      background-color: @button-color-hover;
+    }
+  }
+  .media-transcript-button-container {
+  	padding-left: 0px;
+  	padding-right: 0px;
+  }
+    
+  .media-title-inner.component-title-inner:before {
+    content: "\f008";
+    font-family: FontAwesome;
+    font-size: 40px;
+    font-weight: 300;
+    left: 0;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            top: 0px;
+            font-size: 23px;
+        }
+        @media all and (max-width: (@device-width-small + 20px)) {
+            top: 0px;
+            font-size: 18px;
+        }
+    }
+    
+    .mejs-overlay-loading,
+    .mejs-container .mejs-controls,
+    .mejs-controls .mejs-volume-button .mejs-volume-slider,
+    .mejs-controls .mejs-captions-button .mejs-captions-selector,
+    .mejs-captions-text,
+    .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector,
+    .mejs-postroll-layer,
+    .mejs-postroll-close,
+    .mejs-controls .mejs-speed-button .mejs-speed-selector {
+        background-image: url(../../assets/background.png);
+        
+        @media all and (max-width: (@device-width-medium + 20px)) {
+                background-image: url(../../assets/background.png);
+                }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+                background-image: url(../../assets/background.png);
+                }
+    }
+
+    .mejs-overlay-loading span {
+        background-image: url(../../assets/loading.gif);
+    }
+
+    .mejs-controls .mejs-button {
+        &.mejs-jump-forward-button {
+            background-image: url(../../assets/jumpforward.png);
+        }
+        &.mejs-skip-back-button {
+            background-image: url(../../assets/skipback.png);
+        }
+        button {
+            background-image: url(../../assets/controls.svg);
+        }
+    }
+    
+    .accessibility.no-touch & {
+        .mejs-controls .mejs-button {
+            button:focus {
+                outline: @focus-outline;
+            }
+        }
+    }
+
+    .no-svg .mejs-controls .mejs-button button {
+        background-image: url(../../assets/controls.png);
+        
+        @media all and (max-width: (@device-width-medium + 20px)) {
+                background-image: url(../../assets/controls.png);
+                }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+                background-image: url(../../assets/controls.png);
+                }
+    }
+
+    .mejs-container-fullscreen .mejs-mediaelement, .mejs-container-fullscreen video {
+        width: 100% !important;
+        height: 100% !important;
+        background-color: black;
+    }
+}

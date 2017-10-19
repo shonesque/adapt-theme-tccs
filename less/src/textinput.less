@@ -1,0 +1,153 @@
+.textinput-widget {
+    &.disabled {
+        .textinput-item {
+            //border-color: @item-border-color-disabled;
+            background-color: @correct-tccs-answer;
+        }
+    }
+}
+
+.textinput-item {
+    background-color: @white;
+    position: relative;
+    border-radius: 0px;
+    margin-bottom: 18px;
+    color: @item-text-color;
+    border-left: 6px solid @tccs-module; 
+
+    .component-full & {
+        padding: 1.4% 2% 1.5% 2%;
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+
+    .component-left &,
+    .component-right & {
+        padding: 22px;
+    }
+}
+
+.textinput-item-textbox {
+    line-height: 28px;
+
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+
+    &.textinput-validation-error {
+        border: 2px solid @validation-error;
+    }
+}
+
+textarea {
+  border: 1px solid @tccs-dark-grey; 
+  margin-bottom: 5px;
+  //width: 94%;
+    @media all and (max-width: (@device-width-medium + 20px)) {
+        width: 94%;
+    }
+    @media all and (max-width: (@device-width-small + 20px)) {
+        width: 94%;
+    }  
+}
+
+input {
+  border: 1px solid @tccs-dark-grey; 
+}
+
+.textinput-widget {
+    .textinput-correct-icon {
+        color: @white;
+        position: relative;
+    }
+
+    .textinput-incorrect-icon {
+        color: @white;
+        position: relative;
+    }
+
+        &.submitted {
+            .incorrect {
+                .textinput-incorrect-icon {
+                    display: inline;
+                    top: 7px;
+                    color: @incorrect-tccs-answer;
+                }
+                &.textinput-item {
+                    background-color: @white;
+                    color: @item-text-color;
+                    border-left: 6px solid @incorrect-tccs-answer; 
+                }
+            }
+            .correct {
+                .textinput-correct-icon {
+                    display: inline;
+                    top: 7px;
+                    color: @correct-tccs-answer;
+                }
+                &.textinput-item {
+                    background-color: @white;
+                    color: @item-text-color;
+                    border-left: 6px solid @correct-tccs-answer; 
+                }
+            }
+        }
+
+        &.show-user-answer {
+        .incorrect {
+            .textinput-incorrect-icon {
+                display: inline;
+                top: 7px;
+                color: @incorrect-tccs-answer;
+            }
+            &.textinput-item {
+                background-color: @white;
+                color: @item-text-color;
+            }
+        }
+        .correct {
+            .textinput-correct-icon {
+                display: inline;
+                top: 7px;
+                color: @correct-tccs-answer;
+            }
+            &.textinput-item {
+                background-color: @white;
+                color: @item-text-color;
+            }
+        }
+    }
+
+    &.show-correct-answer {
+        .textinput-select-icon {
+            display: none;
+        }
+        .textinput-correct-icon {
+            display: inline;
+            top: 7px;
+        }
+        &.textinput-incorrect-icon {
+            display: none;
+        }
+        .textinput-correct-icon {
+            color: @correct-tccs-answer;
+        }
+
+        &.textinput-item {
+            background-color: @white;
+            color: @item-text-color;
+            border-left: 6px solid @correct-tccs-answer; 
+        }
+
+        &.submitted .incorrect .textinput-incorrect-icon {
+            display: none;
+        }
+        &.submitted .incorrect.textinput-item {
+            background-color: @white;
+            color: @item-text-color;
+            border-left: 6px solid @correct-tccs-answer; 
+        }
+
+            
+    }
+}

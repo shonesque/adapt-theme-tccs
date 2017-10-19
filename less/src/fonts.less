@@ -1,0 +1,186 @@
+// Font setup
+// ==========
+
+html {
+  -ms-text-size-adjust: 100%; // preserve HTML font-size (iPhone orientation change)
+  -webkit-text-size-adjust: 100%;
+} 
+
+body {
+    color: @font-color;
+    font-family: @font-family;
+    font-size: @body-text-font-size;
+    font-weight: @body-text-font-weight;
+    line-height: @body-text-line-height;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.1px;
+}
+
+.ie8 & {
+    body {
+        font-family: Arial, sans-serif;
+    }
+}
+
+// Variable set font styling
+// =========================
+
+.menu-title {
+    font-size: @menu-title-font-size;
+    font-weight: @menu-title-font-weight;
+    line-height: @menu-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@menu-title-font-size - 10px);
+    }
+}
+
+.page-title {
+    font-size: @page-title-font-size;
+    font-weight: @page-title-font-weight;
+    line-height: @page-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@page-title-font-size - 10px);
+    }
+}
+
+.article-title {
+    font-size: @component-title-font-size;
+    font-weight: @component-title-font-weight;
+    line-height: @component-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@component-title-font-size - 10px);
+    }
+}
+
+.block-title {
+    font-size: @component-title-font-size;
+    font-weight: @component-title-font-weight;
+    line-height: @component-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@component-title-font-size - 10px);
+    }
+}
+
+.component-title {
+    font-size: @component-title-font-size;
+    font-weight: @component-title-font-weight;
+    line-height: @component-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@component-title-font-size - 10px);
+    }
+}
+
+.item-title {
+    font-size: @item-title-font-size;
+    font-weight: @item-title-font-weight;
+    line-height: @item-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@component-title-font-size - 15px);
+    }
+}
+
+.sub-title {
+    font-size: @sub-title-font-size;
+    font-weight: @sub-title-font-weight;
+    line-height: @sub-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@component-title-font-size - 10px);
+    }
+}
+
+.instruction-text {
+    font-size: @instruction-text-font-size;
+    font-weight: @instruction-text-font-weight;
+    line-height: @instruction-text-line-height;
+}
+
+.notify-popup-title {
+    font-size: @component-title-font-size;
+    font-weight: @component-title-font-weight;
+    line-height: @component-title-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: (@component-title-font-size - 10px);
+    }
+}
+
+.button-text {
+    font-size: @button-text-font-size;
+    font-weight: @button-text-font-weight;
+    line-height: @button-text-line-height;
+
+    @media all and (max-width: @device-width-small) {
+        font-size: 14px;
+    }
+}
+
+// Tag styling
+// ===========
+
+    ul {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    ul li {
+        margin-left: 25px;
+    }
+
+    ul > li {
+        //color: @tccs-blue;
+        padding-left: 0.2em;
+        text-indent: -0.2em;
+
+    }
+
+    ul li > span {
+        color: @item-text-color !important;
+        margin-left: 3px;
+    }
+
+    ol {
+        margin-top: 25px;
+        margin-bottom: 25px;        
+    }
+
+    ol li {
+        margin-left: 25px;
+    }
+
+    ol > li {
+        color: @item-text-color;
+        font-weight: @font-weight-regular;
+        font-family: @font-family-title;
+        padding-left: 0.3em;
+        text-indent: -0.2em;
+    }
+
+    ol li > span {
+        color: @item-text-color !important;
+        font-weight: 400 !important;
+        font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+        margin-left: 3px;
+    }
+
+    strong {
+        font-weight: @font-weight-bold;
+        color: @tccs-blue;
+    }
+
+    b {
+        font-weight: @font-weight-bold;
+        //color: @tccs-blue;
+    }
+
+    select {
+        font-size: 14px;
+        line-height: 140%;
+        font-weight: 300;
+    }

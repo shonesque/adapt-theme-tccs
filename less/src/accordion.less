@@ -1,0 +1,160 @@
+.accordion-component {
+
+    .accordion-item {
+        margin-bottom: @item-margin-bottom;
+        background-color: @white;
+        border-left: 6px solid @tccs-module;
+        border-radius: 0px;
+        color: @item-text-color;
+
+        -webkit-animation-duration: 0.6s;
+        -webkit-animation-delay: 0s;
+        -webkit-animation-iteration-count: 1;
+        
+        &:hover {
+          background-color: @white;
+          border-left: 6px solid @tccs-blue;
+        }
+
+        @media all and (max-width:@device-width-medium) {
+          width:100%;
+        }
+            &.selected {
+               border-left: 6px solid @tccs-orange;
+            }
+    }
+    
+    .accordion-widget {
+        padding: 0px 22px 0px 22px;
+    }
+
+    .accordion-item-title-icon {
+        .dir-rtl & {
+	        left:inherit;
+	        right:@item-padding-left; 
+        }
+    }
+
+    .accordion-item-title {
+        color: @item-text-color;
+        background-color: @item-color;
+        padding-top: @item-padding-top;
+        padding-bottom: @item-padding-bottom;
+        padding-left: (@icon-size+(@item-padding-left*2));
+        .item-title;
+        
+        .dir-rtl & {
+            padding-left:inherit;
+            padding-right:(@icon-size+(@item-padding-left*2));
+        }
+
+        &.visited {
+            color: @item-text-color;
+            background-color: @item-color;
+            border-color: @item-border-color-visited;
+
+            .accordion-item-title-icon {
+                color: @item-text-color;
+            }
+        }
+
+        &.selected {
+            color: @item-text-color;
+            background-color: @item-color;
+            border-color: @item-border-color-selected;
+
+            .accordion-item-title-icon {
+                color: @item-text-color;
+            }
+        }
+        .no-touch & {
+            &:hover {
+                color: @item-text-color;
+                background-color: @item-color;
+                border-color: @item-border-color-hover;
+
+                .accordion-item-title-icon {
+                    color: @item-text-color;
+                }
+            }
+            &.visited:hover {
+                color: @item-text-color;
+                background-color: @item-color;
+                border-color: @item-border-color-hover;
+
+                .accordion-item-title-icon {
+                    color: @item-text-color;
+                }
+            }
+            &.selected:hover {
+				background-color: @item-color;
+			}
+        }
+
+    }
+    
+    .accordion-item-title-inner {
+        font-size: 16px;
+        font-weight: 400;
+        //height: 25px;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .accordion-item-body {
+        width: 100%;
+        color: @item-body-text-color;
+        display: inline-flex;
+        
+/*        @media all and (max-width:@device-width-medium) {
+          display: inline-flex;
+        }
+        
+        @media all and (max-width:@device-width-small) {
+            display: inline-block;
+          }
+*/
+        
+        .accordion-item-graphic {
+            min-width: 200px;
+            max-width: 200px;
+            float: left;
+            padding: 0px 0px 15px 15px;
+
+            @media all and (max-width:@device-width-medium) {
+              min-width: 200px;
+              max-width: 200px;
+              float: none;
+              padding-bottom:15px;
+              margin: auto;
+            }
+
+            @media all and (max-width:@device-width-small) {
+              min-width: 200px;
+              max-width: 200px;    
+              float: none;  
+              padding-bottom:15px;
+              margin: auto;
+            }
+        }
+
+        .accordion-item-body-inner {
+            //min-width: 75%;
+            float: left;
+            padding: 0px 10px 5px 15px;
+        }
+    }
+    
+    .accordion-small {
+        display: inline-block;
+    }
+    
+    .accordion-med {
+        display: inline-flex;
+    }
+    
+    .accordion-large {
+        display: inline-flex;
+    }
+    
+    
+}
