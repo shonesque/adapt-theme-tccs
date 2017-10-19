@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "framework": ">=2.1",
   "homepage": "https://github.com/ivx/adapt-theme-tccs",
+  "repository": "git://github.com/ivx/adapt-theme-tccs.git",
   "issues": "https://github.com/ivx/adapt-theme-tccs.git",
   "displayName": "TCCS Theme",
   "theme": "theme-tccs",
