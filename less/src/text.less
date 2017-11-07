@@ -1,0 +1,34 @@
+// Text Component styling
+// =================
+
+.text-component {
+    }
+
+.text-title-inner.component-title-inner{
+		color: @tccs-blue;
+	}
+
+
+.text-title-inner.component-title-inner:before {
+    content: "\f05a";
+    color: #379C92;
+    font-family: FontAwesome;
+    font-size: 40px;
+    font-weight: 300;
+    left: 0;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            top: 0px;
+            font-size: 23px;
+        }
+    
+        @media all and (max-width: (@device-width-small + 20px)) {
+            top: 0px;
+            font-size: 18px;
+        }
+}
+
+
