@@ -8,7 +8,7 @@
   "displayName": "TCCS Theme",
   "theme": "theme-tccs",
   "description": "Theme for TCCS e-learnings",
-  "main": "js/theme-tccs.js",
+  "main": "js/tccs.js",
   "keywords": [
     "adapt-plugin",
     "adapt-theme"
