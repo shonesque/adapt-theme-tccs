@@ -1,0 +1,208 @@
+/*
+* adapt-contrib-trickle
+* License - http://github.com/adaptlearning/adapt_framework/LICENSE
+* Maintainers - Oliver Foster <oliver.foster@kineo.com>
+*/
+
+html.trickle {
+    height:100%;
+    body, .body {
+        overflow: hidden;
+    }
+}
+
+.trickle-hidden {
+    text-align: center;
+    padding-bottom: 5px;
+    height: 50px;
+}
+
+.trickle-button-component {
+    text-align: center;
+    padding-bottom: 40px;
+    height: 50px;
+
+    .trickle-button-inner {
+        z-index: 500;
+        height: 50px;
+        
+        &.component-inner {
+            background-color: @white
+        }
+    }
+    
+    &.trickle-full-width {
+        .trickle-button-inner {
+            display:none;
+            width: 100%;
+
+            &.locking {
+                position:fixed;
+                bottom:0px;
+                left:0px;
+                display:block;
+
+                button {
+                    z-index: 500;
+                    width:100%;
+                }
+            }
+        }
+
+    }
+
+&.trickle-round-arrow {
+        button {
+            display:inline-block;
+            position:relative;
+            top:-50px;
+            width: 80px;
+            height: 80px;
+            background-color: @button-color;
+            border-radius: 50%;
+            margin: 3px auto 0;
+            background-image: url('./assets/trickle-arrow.svg');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-clip: padding-box;
+            border: 5px solid #fff;
+            color: transparent !important;
+            font-size: 0px;
+  -webkit-animation-duration: 1.1s;
+     -moz-animation-duration: 1.1s;
+      -ms-animation-duration: 1.1s;
+       -o-animation-duration: 1.1s;
+          animation-duration: 1.1s;
+  -webkit-animation-delay: 0.1s;
+     -moz-animation-delay: 0.1s;
+      -ms-animation-delay: 0.1s;
+       -o-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+    -webkit-animation-iteration-count: 1;
+     -moz-animation-iteration-count: 1;
+      -ms-animation-iteration-count: 1;
+       -o-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+        :focus {outline:none;}
+        ::-moz-focus-inner {border:0;}
+
+            &.disabled {
+                background-color: @background-color!important;
+                border-color: @white!important;
+                color: @button-text-color-disabled!important;
+                cursor:default;
+            }
+
+            &:hover {
+                border: 5px solid #fff;
+            }
+        // Sets the animation pulse before trickle appears
+            &:before {
+                position: relative;
+                z-index: 1;
+                //border-top: 2px solid #dfdfdf;
+                content:"";
+                margin: 0 auto; /* this centers the line to the full width specified */
+                position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+                top: 50%; left: 0; right: 0; bottom: 0;
+                width: 95%;
+                z-index: -1;
+            }
+        }
+    }
+
+    &.trickle-full-width.trickle-round-arrow {
+        padding-bottom: 80px;
+
+        .trickle-button-inner {
+            display:none;
+            width: 100%;
+
+            &.locking {
+                position:fixed;
+                bottom:0px;
+                left:0px;
+                display:block;
+                
+                button {
+                    width: 80px;
+                    height: 80px;
+                    background-color: @button-color;
+                    border-radius: 50%;
+                    margin: 10px auto 0;
+                    -webkit-transition: background-color 0.25s ease-in;
+                    -moz-transition: background-color 0.25s ease-in;
+                    -o-transition: background-color 0.25s ease-in;
+                    transition: background-color 0.25s ease-in;
+                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAxCAYAAACGYsqsAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH3wUNDDU4lh/QuwAAA2dJREFUaN7tmktrFEEURr9KYkyMMUajibowkBCieYjgf3DrUl36C8SVoIQIupEgwURRfExA3AgKghKNioqPuFJcGAU3CiIoaJQ8RCeZ46ZHmqJ7MtNT3TOR+VY9dNP3nrlVt27fKqmiiiqqqKJlKCDSvST9i+KjCXrQGOP/XSWpSVKVpF/GmPmwZ5MMhOVjo6SVktLGmJ+5eEzYTWCtpJ2SeiR1SqqV9EXSlKTXkt4bYwhyIAlYYKWkbZL6JXVLapY0K+mdpDeSXhljfocGxj8EgF5gBJgmWE+B/UBDPsPL9RAGWoCDwFSIfx+BAWBL4BD3vUjAduAxS+sHcBhYHTe0BdsGnAUW8vDxKrDRz2e/uBG4Sf6a8f7J2KAt2E3AJSBTgI8ngeqgKFcDeyhcM8BgHNABsClgsUD/0kAPYOyX1wHXiaZZ4JjLOR0wjMcKjKxfR7NR9htoAD4RXXPAcRfQAbBXioAFuA2ssI2s9pwuRvPACaA+KrQF2+olnkyRfk1mgav8tiR9L3La1Us6JGkAqPOt6VHW2Q2ShiXtCyqQCtS37IUfeFHSpINcU+dBDwK1+UJbsOslnZG01wGsJD2TlLENVgG7cac/3pJQs9TwtoqeZuAGbtURaBtYA1xzaCgNDPnXQduwBdtUYB2Qjway8/efLcvoVuCFQ4OLwCnvI8ROSnbRc8uRzWySSwHrcpaX3nWnY+gMMGyVsPaSOO44sikv8YWWlUHQk46dOB0wjVYBE47tXM4JmzD0iAV7PwbYlsjNCqALeO7YqVGgHngQ5zCO3OIBumOA/uz4fWNZ2Mh1vJVRt3kf/uWoVNGwIdA9wJMyhN3otLloQffm2RFJCrY1lk6qBd0PPPpvYUOgdwAPSwCa8WDbEumRB0A/SBB20Vtnk4HNAX0/AdiFksDmgL4XI2za61Zu8uwlu91hQRtfIpuICfaiL7KlgQ2B7gPuOoa9UDawOYqTO47m7HlfUVEesDnK0PEis/E5X7lYXrAh0F0RoTPe3lFLuexFFwLdEQF6NNuWKXvYEOj2ArqQQ0DzsoINgd4MHAG+hoC+BQ4ATXHDmrihfc31BkntknZJ6pPUIGla0kvvRMEHY0w67mMUJqlo+3YgaiStklQtaUHSnDEmU6ozIyU5dbPs5mtFFVVUMv0F2vP1DG+OuikAAAAASUVORK5CYII=');
+                    background-size: 60px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    border: none;
+                    margin-bottom: 20px;
+                    color: transparent !important;
+                    font-size: 0px;
+                }
+            }
+        }
+    }
+    &.trickle-edge-right {
+                position:fixed;
+                bottom:68px;
+                right:69px;
+                display:block;
+            button {
+                width: 87px;
+                height: 92px;
+                background-color: @button-color;
+                border-radius: 0px 21px 21px;
+                margin: 10px auto 0;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAxCAYAAACGYsqsAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH3wUNDDU4lh/QuwAAA2dJREFUaN7tmktrFEEURr9KYkyMMUajibowkBCieYjgf3DrUl36C8SVoIQIupEgwURRfExA3AgKghKNioqPuFJcGAU3CiIoaJQ8RCeZ46ZHmqJ7MtNT3TOR+VY9dNP3nrlVt27fKqmiiiqqqKJlKCDSvST9i+KjCXrQGOP/XSWpSVKVpF/GmPmwZ5MMhOVjo6SVktLGmJ+5eEzYTWCtpJ2SeiR1SqqV9EXSlKTXkt4bYwhyIAlYYKWkbZL6JXVLapY0K+mdpDeSXhljfocGxj8EgF5gBJgmWE+B/UBDPsPL9RAGWoCDwFSIfx+BAWBL4BD3vUjAduAxS+sHcBhYHTe0BdsGnAUW8vDxKrDRz2e/uBG4Sf6a8f7J2KAt2E3AJSBTgI8ngeqgKFcDeyhcM8BgHNABsClgsUD/0kAPYOyX1wHXiaZZ4JjLOR0wjMcKjKxfR7NR9htoAD4RXXPAcRfQAbBXioAFuA2ssI2s9pwuRvPACaA+KrQF2+olnkyRfk1mgav8tiR9L3La1Us6JGkAqPOt6VHW2Q2ShiXtCyqQCtS37IUfeFHSpINcU+dBDwK1+UJbsOslnZG01wGsJD2TlLENVgG7cac/3pJQs9TwtoqeZuAGbtURaBtYA1xzaCgNDPnXQduwBdtUYB2Qjway8/efLcvoVuCFQ4OLwCnvI8ROSnbRc8uRzWySSwHrcpaX3nWnY+gMMGyVsPaSOO44sikv8YWWlUHQk46dOB0wjVYBE47tXM4JmzD0iAV7PwbYlsjNCqALeO7YqVGgHngQ5zCO3OIBumOA/uz4fWNZ2Mh1vJVRt3kf/uWoVNGwIdA9wJMyhN3otLloQffm2RFJCrY1lk6qBd0PPPpvYUOgdwAPSwCa8WDbEumRB0A/SBB20Vtnk4HNAX0/AdiFksDmgL4XI2za61Zu8uwlu91hQRtfIpuICfaiL7KlgQ2B7gPuOoa9UDawOYqTO47m7HlfUVEesDnK0PEis/E5X7lYXrAh0F0RoTPe3lFLuexFFwLdEQF6NNuWKXvYEOj2ArqQQ0DzsoINgd4MHAG+hoC+BQ4ATXHDmrihfc31BkntknZJ6pPUIGla0kvvRMEHY0w67mMUJqlo+3YgaiStklQtaUHSnDEmU6ozIyU5dbPs5mtFFVVUMv0F2vP1DG+OuikAAAAASUVORK5CYII=');
+                background-size: 60px;
+                background-repeat: no-repeat;
+                background-position: center;
+                border: none;
+                color: transparent !important;
+                font-size: 0px;
+            }
+        }  
+    &.trickle-edge-center {
+                width: 1024px;
+                margin: auto;
+                padding: 0;
+            button {
+                width: 87px;
+                height: 92px;
+                background-color: @button-color;
+                border-radius: 20px 0px 20px 20px;
+                margin: auto;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAxCAYAAACGYsqsAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH3wUNDDU4lh/QuwAAA2dJREFUaN7tmktrFEEURr9KYkyMMUajibowkBCieYjgf3DrUl36C8SVoIQIupEgwURRfExA3AgKghKNioqPuFJcGAU3CiIoaJQ8RCeZ46ZHmqJ7MtNT3TOR+VY9dNP3nrlVt27fKqmiiiqqqKJlKCDSvST9i+KjCXrQGOP/XSWpSVKVpF/GmPmwZ5MMhOVjo6SVktLGmJ+5eEzYTWCtpJ2SeiR1SqqV9EXSlKTXkt4bYwhyIAlYYKWkbZL6JXVLapY0K+mdpDeSXhljfocGxj8EgF5gBJgmWE+B/UBDPsPL9RAGWoCDwFSIfx+BAWBL4BD3vUjAduAxS+sHcBhYHTe0BdsGnAUW8vDxKrDRz2e/uBG4Sf6a8f7J2KAt2E3AJSBTgI8ngeqgKFcDeyhcM8BgHNABsClgsUD/0kAPYOyX1wHXiaZZ4JjLOR0wjMcKjKxfR7NR9htoAD4RXXPAcRfQAbBXioAFuA2ssI2s9pwuRvPACaA+KrQF2+olnkyRfk1mgav8tiR9L3La1Us6JGkAqPOt6VHW2Q2ShiXtCyqQCtS37IUfeFHSpINcU+dBDwK1+UJbsOslnZG01wGsJD2TlLENVgG7cac/3pJQs9TwtoqeZuAGbtURaBtYA1xzaCgNDPnXQduwBdtUYB2Qjway8/efLcvoVuCFQ4OLwCnvI8ROSnbRc8uRzWySSwHrcpaX3nWnY+gMMGyVsPaSOO44sikv8YWWlUHQk46dOB0wjVYBE47tXM4JmzD0iAV7PwbYlsjNCqALeO7YqVGgHngQ5zCO3OIBumOA/uz4fWNZ2Mh1vJVRt3kf/uWoVNGwIdA9wJMyhN3otLloQffm2RFJCrY1lk6qBd0PPPpvYUOgdwAPSwCa8WDbEumRB0A/SBB20Vtnk4HNAX0/AdiFksDmgL4XI2za61Zu8uwlu91hQRtfIpuICfaiL7KlgQ2B7gPuOoa9UDawOYqTO47m7HlfUVEesDnK0PEis/E5X7lYXrAh0F0RoTPe3lFLuexFFwLdEQF6NNuWKXvYEOj2ArqQQ0DzsoINgd4MHAG+hoC+BQ4ATXHDmrihfc31BkntknZJ6pPUIGla0kvvRMEHY0w67mMUJqlo+3YgaiStklQtaUHSnDEmU6ozIyU5dbPs5mtFFVVUMv0F2vP1DG+OuikAAAAASUVORK5CYII=');
+                background-size: 60px;
+                background-repeat: no-repeat;
+                background-position: center;
+                border: none;
+                color: transparent !important;
+                font-size: 0px;
+                }
+    }
+    
+}
+
+.trickle-spacer {
+    height: 10px;
+}
+
+.trickle-spacer-hidden {
+    display: none;
+}
+
+hr.trickle {
+    width: 100%
+    height: 1px;
+    border: 0;
+    //border-top: 1px solid #E4E4E4;
+    border-bottom: 2px solid @background-color;
+    margin: 48px 0;
+    padding: 0;
+}

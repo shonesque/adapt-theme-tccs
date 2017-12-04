@@ -1,0 +1,222 @@
+.gmcq-component {
+    .gmcq-item {
+        @media all and (max-width:@device-width-medium) {
+            width:100%;
+            &.even, &.odd {
+                label {
+                    margin-left:0%;
+                    margin-right:0%;
+                }
+            }
+        }
+    }
+
+    &.col-4 {
+        .gmcq-item {
+            width: 25%;
+
+            &.item-1, &.item-2 {
+                label {
+                    margin-left: 0%;
+                    margin-right: 0%;
+                }
+            }
+        
+            @media all and (max-width:@device-width-medium) {
+                width:100%;
+                &.even, &.odd {
+                    label {
+                        margin-left:0%;
+                        margin-right:0%;
+                    }
+                }
+            }
+        }
+    }
+
+        &.col-3 {
+        .gmcq-item {
+            width: 32%;
+
+            &.item-1, &.item-2 {
+                label {
+                    margin-left: 0%;
+                    margin-right: 0%;
+                }
+            }
+        
+            @media all and (max-width:@device-width-medium) {
+                width:100%;
+                &.even, &.odd {
+                    label {
+                        margin-left:0%;
+                        margin-right:0%;
+                    }
+                }
+            }
+        }
+    }
+
+    .gmcq-item label {
+        color: @item-text-color;
+        border: none;
+        background-color: transparent;
+
+        img, object, embed {
+            max-width: 230px;
+            min-height: 222px;
+            display: block;
+            margin: auto;
+         }
+
+
+        .gmcq-answer-icon {
+            color: @tccs-dark-grey;
+        }
+
+        &.selected {
+            color: @item-color-selected;
+            background-color: #9fd2cc; //selected state of the main item section
+            
+            .gmcq-item-icon {
+                color: @item-text-color; // selected state of the icon radio or checkbox
+
+                &.gmcq-correct-icon {
+                    color:@validation-success;
+                }
+
+                &.gmcq-incorrect-icon {
+                    color:@validation-error;
+                }
+            }
+            
+            .gmcq-item-inner {
+                color: @font-color;
+                background-color: @background-color; //selected state of bottom section of item
+                border-top: 9px solid @tccs-orange;
+            }
+        }
+
+        &.disabled {
+            .gmcq-item-icon {
+                //color: @item-text-color;
+            }
+            .gmcq-item-inner {
+                color: @item-text-color; //text color of bottom section after submit
+                background-color: @background-color; //unselected item bottom section background after submission
+            }
+        }
+    }
+
+    .gmcq-item-inner {
+        border-top: 9px solid @tccs-module;
+        margin-left: 0;
+        color: @font-color;
+        padding: 15px 21px 16px 42px;
+        .dir-rtl & {
+            margin-left: inherit;
+            margin-right: @icon-size * 2;
+        }
+    }
+
+    .gmcq-item input {
+        filter: alpha(opacity=0); // ie8 fix for opacity on input
+        opacity: 0;
+    }
+
+/*    .gmcq-correct-icon {
+        color: @white;
+    }
+
+    .gmcq-incorrect-icon {
+        color: @white;
+    }
+*/
+    .gmcq-widget {
+        &.show-user-answer {
+            label.selected {
+                .gmcq-item-inner {
+                    color: @font-color; //colour for the selected state text after submission.
+                    background-color: @background-color;
+                }
+            }
+        }
+
+        &.show-correct-answer {
+            label.selected {
+                .gmcq-item-inner {
+                    color: @item-text-color;
+                    background-color: @background-color; // colour for the correct answer item bottom section background
+                    border-top: 9px solid @correct-tccs-answer;
+                }
+            }
+                                
+            .gmcq-correct-icon {
+                color:@correct-tccs-answer;
+            }
+        }
+
+        &.disabled {
+            .gmcq-item label.selected.disabled {
+                background-color: #9fd2cc; // colour for the correct answer item background
+                .gmcq-item-icon {
+                   /* background-color: @tccs-module;
+                    -moz-border-radius: 60px;
+                    -webkit-border-radius: 60px;
+                    border-radius: 60px;
+                    -moz-box-shadow: 0px 0px 0px #888;
+                    -webkit-box-shadow: 0px 0px 2px #888;
+                    box-shadow: 0px 0px 2px #888;*/
+                    &.gmcq-correct-icon {
+                        color:@validation-success;
+                    }
+                    &.gmcq-incorrect-icon {
+                        color:@validation-error;
+                    }
+                }
+            }
+
+            .gmcq-item label.disabled {
+                color: @white;
+                background-color: #9fd2cc; //unselected item background after submission
+                border-color: @item-border-color-disabled;
+                border: none;
+            }
+        }
+    }
+}
+
+.no-touch {
+    .gmcq-component {
+        .gmcq-widget {
+            &:not(.disabled) {
+                .gmcq-item label:hover {
+                    color: @white;
+                    background-color: #9fd2cc;
+                    .gmcq-item-icon {
+                        color: @item-text-color; //hover state of icon
+                    }
+                    .gmcq-item-inner {
+                        border-top: 9px solid @tccs-blue;
+                        color: @font-color;
+                        background-color: @background-color; //hover state of bottom section
+                    }
+
+                &.selected {
+                    background-color: #9fd2cc; //selected state hover section for main item
+                        
+                    .gmcq-item-icon {
+                        color: @item-text-color; //hover state of icon
+                    }
+
+                    .gmcq-item-inner {
+                        border-top: 9px solid @tccs-orange;
+                        color: @font-color;
+                        background-color: @background-color; //hover state of bottom section
+                    }
+                    }
+                }
+            }
+        }
+    }
+}

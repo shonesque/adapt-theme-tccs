@@ -1,0 +1,340 @@
+// Button styling
+// ==============
+
+.buttons-cluster {
+    padding: 0;
+}
+
+.button, button {
+    margin: 0 auto;
+    font-family: @font-family-title;
+    font-weight: @font-weight-regular;
+    background-color: @button-color;
+    color: @button-text-color;
+    padding: @button-padding-top @button-padding-right+10 @button-padding-bottom @button-padding-left+10; // Added left / right padding in case buttons aren't centrally aligned
+    text-decoration: none;
+    text-align: center;
+    display:inline-block;
+    border: @button-border;
+    .transition-all-colors;
+    .button-text;
+
+    @media all and (max-width: @device-width-small) {
+                padding-bottom: 5px;
+            }
+
+    .no-touch &:hover {
+        background-color: @button-color-hover;
+        color: @button-text-color-hover;
+        border-color: @button-border-color-hover;
+    }
+
+
+
+    button::-moz-focus-inner {
+        border: 0;
+    }
+
+
+
+    &.base { 
+        // Override button styles on <a> tags coverted to <button> tags
+        // Could be improved so that buttons are divided into groups, default / submit / nav / icon
+        background-color: transparent;
+        padding: 0;
+        text-align: center;
+        -webkit-transition: none;
+        -moz-transition: none;
+        -ms-transition: none;
+        transition: none;
+
+        .no-touch &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .disabled-style() {
+        background-color: @button-color-disabled!important;
+        border-color: @button-border-color-disabled!important;
+        color: @button-text-color-disabled!important;
+        cursor:default;
+
+        .no-touch &:hover {
+            border-color: @button-border-color-disabled;
+        }
+    }
+
+    &.disabled, &:disabled { .disabled-style; }
+    // IE8 fix needed to be in its own line
+    &[disabled="disabled"] { .disabled-style; }
+}
+
+.buttons {
+    margin-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+    text-align: center;
+
+    button {
+        position:relative;
+        top: -74px;
+        font-weight: @font-weight-regular;
+        font-size: @item-title-font-size;
+        width:30%;
+        text-align: center;
+        border-radius: 25px;
+
+        .dir-rtl & {
+            float: right;
+        }
+
+        &.buttons-action {
+            margin-right: 0.5%;
+        }
+
+        &.buttons-feedback {
+            margin-left: 0.5%;
+        }
+        
+        .component-left &,
+        .component-right & {
+            width: 66%;
+        }
+
+            @media all and (max-width: @device-width-medium) {
+                width:99%;
+                margin-bottom: 5px;
+            }
+
+            @media all and (max-width: @device-width-small) {
+                width:99%;
+                margin-bottom: 5px;
+            }
+
+    }
+
+    .buttons-display {
+        position:relative;
+        border: @button-border;
+        border-top:none;
+        background-color: @background-color-inverted;
+        color: @foreground-color-inverted;
+    }
+
+    .buttons-marking-icon {
+        position:absolute;
+        left: 57px;
+        bottom: 35px;
+        width: 42px;
+        height: 42px;
+        font-size: 54px;
+        line-height: 42px;
+        text-align: center;
+        //border-radius: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
+        //color: @tccs-module;
+        //border: @button-border;
+        //box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+
+        .dir-rtl & {
+            left: inherit;
+            margin-left: inherit;
+            margin-right: -(40px/2);
+            right: 50%;
+        }
+        
+        &.fa-check-circle {
+            //background-color: @correct-tccs-answer;
+            color: @correct-tccs-answer;
+        }
+
+        &.fa-times-circle {
+            //background-color: @incorrect-tccs-answer;
+            color: @incorrect-tccs-answer;
+        }
+
+        @media all and (max-width: @device-width-small) {
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            margin-left: -20px;
+            margin-top: -20px;
+        }
+
+    }
+
+        .feedback-container {
+            position: relative;
+            top: -40px;
+            margin-bottom: 20px;
+            display: block;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                top: -22px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                top: -22px;
+            } 
+        }
+    
+        .feedback-text {
+            text-align: left;
+            margin-top: 20px;
+            position: relative;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 14px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 12px;
+            } 
+        }
+        
+        .correct-marking-feedback-title {
+            text-align: left;
+            font-size: @icon-size;
+            font-weight: @font-weight-regular;
+            letter-spacing: 0.0px;
+            line-height: @icon-size;
+            color: @item-text-color;
+            font-family: @font-family-title;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 18px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 16px;
+            }   
+        }
+
+        .correct-marking-feedback {
+            float: left;
+
+            &:before {
+                content: "\f058";
+                font-family: FontAwesome;
+                font-size: 44px;
+                font-weight: 300;
+                color: @correct-tccs-answer;
+                left: 2px;
+                margin-right: 10px;
+                position: relative;
+                top: 0px;
+        }
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 13px;
+                padding: 6px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 11px;
+                padding: 5px;
+            }        
+        }
+    
+        .incorrect-marking-feedback-title {
+            text-align: left;
+            font-size: @icon-size;
+            font-weight: @font-weight-regular;
+            letter-spacing: 0.0px;
+            line-height: @icon-size;
+            color: @item-text-color;
+            font-family: @font-family-title;
+            
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 18px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 16px;
+            } 
+        }
+
+        .incorrect-marking-feedback {
+            float: left;
+
+            &:before {
+                content: "\f057";
+                font-family: FontAwesome;
+                font-size: 44px;
+                font-weight: 300;
+                color: @incorrect-tccs-answer;
+                left: 2px;
+                margin-right: 10px;
+                position: relative;
+                top: 0px;
+        }
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 13px;
+                bottom: 25px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 11px;
+                bottom: 25px
+            }        
+        }
+    
+        .partlycorrect-marking-feedback-title {
+
+            text-align: left;
+            font-size: @icon-size;
+            font-weight: @font-weight-regular;
+            letter-spacing: 0.0px;
+            line-height: @icon-size;
+            color: @item-text-color;
+            font-family: @font-family-title;
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 18px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 16px;
+            } 
+        }
+    
+        .partlycorrect-marking-feedback {
+            float: left;
+
+            &:before {
+                content: "\f056";
+                font-family: FontAwesome;
+                font-size: 44px;
+                font-weight: 300;
+                color: @tccs-orange;
+                left: 2px;
+                margin-right: 10px;
+                position: relative;
+                top: 0px;
+        }
+
+            @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 13px;
+                bottom: 25px;
+            }
+
+            @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 11px;
+                bottom: 25px
+            } 
+        }
+
+    .buttons-display-inner {
+        padding: @button-padding;
+        text-align: center;
+    }
+}
+
+
+          .buttons-action.disabled::before {
+            color: @button-text-color-disabled;
+        }

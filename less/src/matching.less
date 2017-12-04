@@ -1,0 +1,176 @@
+.matching-component {
+
+  .matching-item {
+    padding-bottom: @item-padding-bottom;
+  }
+
+  .matching-item-title {
+    margin-bottom: @item-margin-top;
+    font-family: @font-family-title;
+    font-weight: @font-weight-regular;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    margin-left: 4px;
+    color: @tccs-blue;
+  }
+
+  .matching-select-container {
+    background-color: @white;
+    border-left: 6px solid @tccs-module;
+    border-radius: 0px;
+    color: @item-text-color;
+
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+
+
+    @media all and (max-width:@device-width-medium) {
+      width:100%;
+    }
+
+    &.tccs-selected{
+      background-color: @white;
+      border-left: 6px solid @tccs-orange;
+      &:hover{
+        background-color: @white;
+        border-left: 6px solid @tccs-orange;
+      }
+    }
+
+    &.error-state {
+      border:2px solid @incorrect-tccs-answer;
+    }
+
+  }
+
+  .matching-select-icon {
+    color: @item-text-color;
+  }
+
+  .matching-correct-icon {
+    color: @correct-tccs-answer;
+  }
+
+  .matching-incorrect-icon {
+    color: @incorrect-tccs-answer;
+  }
+
+  .matching-select {
+    font-size: 16px;
+    font-weight: 400;
+    height: 46px;
+    border-radius: 5px;
+    padding: @item-padding-top @item-padding-left @item-padding-bottom @item-padding-right;
+	   .dir-rtl & {
+            padding: @item-padding-top @item-padding-left @item-padding-bottom @item-padding-left;
+      }
+
+      @media all and (max-width:@device-width-medium) and (min-width:@device-width-small) {
+          width:92%;
+      }
+      
+      @media all and (max-width:(@device-width-small - 1)) {
+        width:90%;
+      }
+
+      /*&:focus {
+        background: transparent;
+      }*/
+      
+      //Removes blue highlight from select on ie
+      &:focus::-ms-value {
+        color: @item-text-color; 
+        background: @white;
+      }
+      
+      .Firefox & {
+        width: 105%;
+        padding-right: 80px;
+      }
+      .ie8 &,
+      .ie9 & {
+        width: 110%;
+        //padding-right: 65px;
+      }
+
+  }
+
+ 	.matching-select:disabled {
+		color: @item-text-color;
+	}
+
+  .matching-widget {
+
+    &.submitted {
+      .matching-select-container {
+        background-color: @white;
+        border-left: 6px solid @correct-tccs-answer;
+      }
+    }
+
+  }
+
+}
+
+.no-touch {
+  .matching-select-icon {
+    &:hover {
+      color: @item-text-color-hover;
+      &.matching-correct-icon {
+        color: @validation-success;
+      }
+      &.matching-incorrect-icon {
+        color: @validation-error;
+      }
+    }
+  }
+  .matching-select-container {
+    &:hover {
+      background-color: @white;
+      border-left: 6px solid @tccs-blue;
+
+      .matching-dropdown-icon {
+        color: @tccs-blue;
+      }
+    }
+  }
+
+}
+
+.select2-container--default,
+.dir-rtl .select2-container--default {
+
+	&.select2-container--disabled {
+
+		span.select2-selection--single,
+		.no-touch & span.select2-selection--single:hover {
+			background-color: @white;
+			color: @item-text-disabled-color;
+		}
+	
+	}
+}
+
+.selected {
+  background-color: @red;
+}
+
+.ie8 {
+  .submitted.matching-widget .matching-select-container {
+    background-color: @white;
+  }
+  .matching-select-container {
+    &.disabled {
+      background-color: @item-color-disabled;
+    }
+  }
+}
+
+
+//*IE FIX FOR DISABLED ITEMS
+.matching-component {
+  select[disabled]::-ms-value{
+      color: @item-text-color;
+  }
+}

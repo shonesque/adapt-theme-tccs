@@ -1,0 +1,119 @@
+// Text Component styling
+// =================
+
+.text-component {
+    margin-top: 25px;
+
+// Text Component Types
+
+    &.introduction {
+        border-radius: 25px 25px 0 0;
+        margin-top: 25px;
+    }
+
+    &.summary {
+
+        margin-top: 2px;
+        border-radius: 0 0 25px 25px;
+
+        &.module-molder {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &.end{
+        margin-top: 2px;
+        border-radius: 0 0 25px 25px;
+
+        &.module-molder {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+// Background Colours for text componet
+    &.orange {
+        background-color: #FBE6C6;
+
+        .component-body,.component-title {
+            background-color: #FBE6C6;
+        }
+    }
+
+    &.green {
+        background-color: #C8E1B7;
+        
+        .component-body,.component-title {
+            background-color: #C8E1B7;
+        }
+    }
+
+    &.blue {
+        background-color: #D0EAF4;
+        
+        .component-body,.component-title {
+            background-color: #D0EAF4;
+        }
+    }
+
+}
+
+.text-dimensions {
+    height: 576px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.text-body {
+    font-size: 16px;
+    padding-left: 0px;
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+                font-size: 14px;
+                }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+                font-size: 12px;
+                }
+           }
+
+.text-sub {
+    .component-body-inner {
+        font-size: 16px;
+    }
+}
+
+
+.text-title-inner.component-title-inner{
+		color: @tccs-blue;
+	}
+
+
+.text-title-inner.component-title-inner:before {
+    content: "\f05a";
+    color: #379C92;
+    font-family: FontAwesome;
+    font-size: 40px;
+    font-weight: 300;
+    left: 0;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+
+        @media all and (max-width: (@device-width-medium + 20px)) {
+            top: 0px;
+            font-size: 23px;
+        }
+    
+        @media all and (max-width: (@device-width-small + 20px)) {
+            top: 0px;
+            font-size: 18px;
+        }
+}
+
+
